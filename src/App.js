@@ -5,6 +5,7 @@ import { SignInButton } from './components/SignInButton';
 import ErrorPage from './ErrorPage';
 import UserPage from './UserPage';
 import InitalScreen from './InitalScreen';
+import ListView from './ListView'
 
 
 function App() {
@@ -15,9 +16,9 @@ function App() {
             <Routes>
               <Route exact path='/' element={<InitalScreen />} />
               <Route path='/UserPage' element={<UserPage />} />
-              {/* <Route path='/add' element={<CreateItem />} />
-              <Route path='/edit-item/:id' element={<UpdateItemInfo />} />
-              <Route path='/show-item/:id' element={<ShowItemDetails />} /> */}
+              {/* <Route path='/add' element={<CreateItem />} /> */}
+              {/* <Route path='/edit-item/:id' element={<UpdateItemInfo />} /> */}
+              <Route path='/ListView' element={<ListView />} />
               <Route path= "*" element={<ErrorPage />} />
             </Routes>
         </Router>

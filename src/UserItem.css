@@ -1,0 +1,23 @@
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.bookcover {
+    width: 10vh;
+    background-color: transparent;
+}
+
+.delete {
+    width: 4vh;
+    padding: 20px;
+}
+
+.booktitle {
+    color: black;
+    font-size: 4vh;
+}
+

@@ -1,8 +1,15 @@
-/* .App {
+  .initalScreen {
+    background-color: #A1C1FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
     text-align: center;
+    min-height: 100vh;
   }
-  
-  
+
   .title {
     color: black;
     font-size: 10vh;
@@ -24,14 +31,3 @@
     margin: 20px 10px;
     cursor: pointer;
 }
-  
-  .initalScreen {
-    background-color: #A1C1FF;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  } */
