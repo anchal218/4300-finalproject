@@ -13,13 +13,15 @@
   .title {
     color: black;
     font-size: 10vh;
-    padding: 0px;
+    padding: 10px;
+    margin-top: 10px;
   }
   
   .logo {
     background-color: transparent; 
     width: 50vh; 
-    padding: 30px;
+    padding: 0px;
+    margin: 10px 0px 20px 0px;
   }
 
   .logIn {
@@ -28,6 +30,27 @@
     font-size: 3vh;
     padding: 10px 60px;
     border-radius: 5px;
-    margin: 20px 10px;
+    margin: 20px 0px 70px;
     cursor: pointer;
 }
+
+.username {
+  width: 35vh;
+  height: 6.5vh;
+  margin: 40px 0px 10px;
+  border-radius: 10px;
+}
+
+.password {
+  width: 35vh;
+  height: 6.5vh;
+  margin: 10px 0px 50px;
+  border-radius: 10px;
+}
+
+.options {
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-size: 2vh;
+  }

@@ -22,12 +22,16 @@ const handleSignup = () => {
             <h1 className="title">BookFinds</h1>
             <form>
                 <label>
-                <input type="text" placeholder="Username" required/>
+                <input type="text" className = "username" placeholder=" Username" required/>
                 <br></br>
-                <input type="text" placeholder="Password" required/>
+                <input type="text" className = "password" placeholder=" Password" required/>
                 </label>
             </form>
-            <button onClick={handleLogout}>Logout</button>
+            <button className = "options" onClick={handleLogout}><b>Sign Up</b></button>
+            <br></br>
+            <button className = "options" onClick={handleLogout}><b>Forgot Username</b></button>
+            <br></br>
+            <button className = "options" onClick={handleLogout}><b>Forgot Password</b></button>
         </div>
         ) : (
             <div>
