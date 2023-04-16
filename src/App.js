@@ -1,52 +1,27 @@
 import './App.css';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import React, { useState } from "react";
 import { SignInButton } from './components/SignInButton';
-//import {BrowserRouter as Route} from 'react-router-dom';
-import {UserPage} from './UserPage';
+import ErrorPage from './ErrorPage';
+import InitalScreen from './InitalScreen';
+import ListView from './ListView'
 
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-  };
-
-  const handleSignup = () => {
-    // signup stuff here
-  };
-
   return (
-    <div className="App">
-      <div className="App-header">
-      {isLoggedIn ? (
-        <div>
-          <h1 className="title">BookFinds</h1>
-          <form>
-              <label>
-                <input type="text" placeholder="Username" required/>
-                <br></br>
-                <input type="text" placeholder="Password" required/>
-              </label>
-          </form>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-      ) : (
-          <div>
-            <h1 className="title">BookFinds</h1>
-            <img src= "bookfindslogo.png" alt="bookfindslogo" className="logo" /> 
-            <br></br>
-            {/* <SignInButton text = "Sign In"></SignInButton> */}
-            <button onClick={handleLogin} className='logIn'>Login</button>
-            {/* <button onClick={handleSignup}>Signup</button> */}
-          </div>
-        )}
+    <div className = "App">
+      <div className = "App-header">
+        <Router>
+            <Routes>
+              <Route exact path='/' element={<InitalScreen />} />
+              {/* <Route path='/add' element={<CreateItem />} /> */}
+              {/* <Route path='/edit-item/:id' element={<UpdateItemInfo />} /> */}
+              <Route path='/ListView' element={<ListView />} />
+              <Route path= "*" element={<ErrorPage />} />
+            </Routes>
+        </Router>
       </div>
-   </div>
+    </div>
   );
 }
 
