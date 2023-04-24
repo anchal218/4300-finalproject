@@ -1,6 +1,11 @@
-.card {
+.card-container {
+  width: 100%;
+  }
+
+  .bookcover {
     padding: 10px;
-    background-color: #C1D6CE;
-    border-radius: 25px;
-    margin: 20px;
+  }
+
+  .author {
+    padding: 10px
   }

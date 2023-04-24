@@ -1,57 +1,64 @@
-import React, {useState} from 'react';
-import Users from './Users.js'
+import React, { useState, useEffect } from 'react';
 import './ListView.css';
 import Card from './Card';
-import UserItem from './UserItem';
+import axios from 'axios';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 function ListView () {
-    const BOOKS = [
-        {
-          id: 'b1',  
-          name: 'It Ends With Us',
-          cover:'it_ends_with_us.png',
-          delete: 'trashcan.png'
-        }
-       ];
+    const { id } = useParams();
+    const [books, setBooks] = useState([])
+    const [item, setItem] = useState({});
+    const navigate = useNavigate();
 
-    const [books, setBooks] = useState(BOOKS)
+  useEffect(() => {
+    axios
+      .get('http://localhost:8082/api/books')
+      .then((res) => {
+        setBooks(res.data);
+      })
+      .catch((err) => {
+        console.log('Error from ListView');
+      });
+  }, []);
 
-    function delBook(id) {
-        const newList = books.filter((item) => item.id !== id);
-        setBooks(newList);
-    }
 
-      return (
-        <div className = "list">
-            <div className = "header">
-            <img src = 'hmbger.png' alt="menu" className = "hmbger"/>
-            <h2>Your List</h2>
-            <h4 className="logout">Log Out</h4>
-            </div>
-            {books.map((book) => (
-              <Card className="users" key = {book.id}>
-                <div className= "item">
-                <img src={book.cover} alt={book.name} className='bookcover' />
-                <h2 className='booktitle'>{book.name}</h2>
-                <button className = "deleteBtn" onClick = {() => delBook(book.id)}>
-                    <img src={book.delete} alt="delete" className='delete' />
-                </button>
-                </div>
-              </Card>
-            ))}
+const deleteBook = (id) => {
+  axios
+    .delete(`http://localhost:8082/api/books/${id}`)
+    .then((res) => {
+      console.log(res.data)});
+
+      setBooks(
+        prevBook => prevBook.filter(el => el._id !== id)
+      )
+};
+
+<p>
+<a href="/create-item">+ Add New Book</a>
+</p>
+  
+  const bookList =
+  books.length === 0
+    ? 'Add your first book!'
+    : books.map((item, k, image) => (<div className = "card"><Card item={item} key={k}/>
+        <button className = "deleteBtn" onClick = {() => deleteBook(item._id)}>
+          <img src='trashcan.png' alt="delete" className='deleteBtn' />
+      </button>
+    </div>))
+
+  return (
+    <div className = "list">
+        <div className = "header">
+        {/* <img src = 'hmbger.png' alt="menu" className = "hmbger"/> */}
+        <Link to='/create-book' className='addBtn'>
+          + Add New Item
+        </Link>
+        <h2>Your List</h2>
+        <h4 className="logout">Log Out</h4>
         </div>
-      );
+        <div className='list'>{bookList}</div>
+    </div>
+  );
 }
-{/* import { AddButton } from './components/AddButton.js';
-import { BookComp } from './components/BookComp.js'; 
-
-const [components, setComponents] = useState(["Sample Component"]); 
-
-function addComponent() { 
-    setComponents([...components, "Sample Component"]) 
-} 
-
-<AddButton onClick={addComponent} image = "checkmark.png"/> 
-{components.map((item, i) => ( <BookComp text={item} /> ))} */}
 
 export default ListView;

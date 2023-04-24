@@ -8,11 +8,11 @@
     padding: 0px 10px 0px 10px;
 }
 
-.hmbger {
+/* .hmbger {
     width: 2vh;
     padding: 30px;
     color: black;
-}
+} */
 
 .logout {
     font-size: 2vh;
@@ -20,9 +20,22 @@
     color: gray;
 }
 
+.card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px;
+    background-color: #C1D6CE;
+    border-radius: 25px;
+    margin: 20px;
+    position: relative
+}
+
 .deleteBtn {
     background-color: transparent;
     border: none;
+    width: 3vh;
+    margin: 0px 15px 0px 0px;
 }
 
 .item {
