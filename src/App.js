@@ -53,6 +53,7 @@ import ListView from './ListView';
 import CreateBook from './CreateBook';
 // import BookDetails from './BookDetails';
 import Navbar from './Navbar';
+import EditBook from './EditBook';
 // import Navbar1 from './components/Navbar1';
 // import booklist from './components/create-exercises.component';
 // import "bootstrap/dist/css/bootstrap.min.css"
@@ -70,6 +71,7 @@ function App() {
       <Route path="/edit/:id" element={<EditExercise />} />
       <Route path="/create" element={<CreateExercise />} /> */}
       <Route path="/users" element={<CreateUser/>} />
+      <Route path="/edit-book/:id" element={<EditBook/>} />
       {/* <Route exact path='/' element={<ShowItemList />} /> */}
       <Route path='/create-book' element={<CreateBook />} />
       {/* <Route path='/edit-item/:id' element={<UpdateItemInfo />} />
