@@ -7,19 +7,18 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 function ListView () {
     const { id } = useParams();
     const [books, setBooks] = useState([])
-    const [item, setItem] = useState({});
     const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get('http://localhost:8082/api/books')
+      .get(`http://localhost:8082/api/books`)
       .then((res) => {
         setBooks(res.data);
       })
       .catch((err) => {
         console.log('Error from ListView');
       });
-  }, []);
+  }, []); 
 
 
 const deleteBook = (id) => {
@@ -40,16 +39,19 @@ const deleteBook = (id) => {
   const bookList =
   books.length === 0
     ? 'Add your first book!'
-    : books.map((item, k, image) => (<div className = "card"><Card item={item} key={k}/>
+    : books.map((item, k) => (<div className = "card"><Card item={item} key={k}/>
         <button className = "deleteBtn" onClick = {() => deleteBook(item._id)}>
           <img src='trashcan.png' alt="delete" className='deleteBtn' />
       </button>
-    </div>))
+      <Link to={`/edit-book/${item._id}`} className='editBtn'>
+        <img src='edit.png' alt="edit" className='editBtn' />
+      </Link>
+    </div>
+    ))
 
   return (
     <div className = "list">
         <div className = "header">
-        {/* <img src = 'hmbger.png' alt="menu" className = "hmbger"/> */}
         <Link to='/create-book' className='addBtn'>
           + Add New Item
         </Link>

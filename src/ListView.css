@@ -38,6 +38,12 @@
     margin: 0px 15px 0px 0px;
 }
 
+.editBtn {    
+    width: 3.5vh;
+    align-self: center;
+    margin: 0px 5px 0px 0px;
+}
+
 .item {
     display: flex;
     flex-direction: row;
